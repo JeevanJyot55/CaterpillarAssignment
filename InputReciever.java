@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * InputReciever class that can be used to check the status of a device
+ */
 public class InputReciever {
 
     private Scanner scanner;
@@ -8,11 +11,17 @@ public class InputReciever {
     private boolean fault;
     private boolean connection = false;
 
+    /*
+    Create a device with a certain value of fuelLevel and whether it has fault
+     */
     public InputReciever(int fuelLevel, boolean fault) {
         this.fuelLevel = String.valueOf(fuelLevel);
         this.fault = fault;
     }
 
+    /*
+    Run the command loop till we exit the connection
+     */
     public void runCommandLoop(String input){
         String output = null;
         while (!output.equals("100")) {
@@ -22,6 +31,9 @@ public class InputReciever {
         }
     }
 
+    /*
+    Method to return repsonse to each input
+     */
     public String response(String input) {
         switch (input) {
             case "001":
